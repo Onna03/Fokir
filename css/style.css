@@ -1,0 +1,865 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none; /*no line under anchor*/
+    box-sizing: border-box; /*border included in padding*/
+    list-style: none;
+}
+
+
+
+
+
+/*navbar begins here*/
+.navbar{
+    background-color: #333333;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed; /*to make it stick*/
+    top: 0;
+    left: 0;
+    z-index: 99;  /*to make sure it's always on top*/
+    transition: background-color 0.5s 1s ease;
+}
+.navbar.scrolled {
+    background-color: #333333; /* Slightly lighter or different color*/
+} 
+.logo{
+    /* background-color: lightblue; */
+    padding: 15px 63px;
+}
+.logo a{
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    line-height: 25px;
+    font-weight: 800;
+    color:#FF305B ;
+}
+.menu{
+    /* background-color: lightgreen; */
+}
+.menu ul{
+    font: "Roboto", sans-serif ;
+    /*note align items need space to move in so padding and such*/
+    display: flex;
+    padding-right: 30px;
+}
+.menu ul a{
+    display: inline-block; /*because anchor is inline element so padding won't
+    be applied to top and bottom unless we make it inline block*/
+    padding: 20px 10px;
+    color: white;
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    transition: all 0.5s;
+}
+.menu ul a:hover{
+    color: #FF305B;
+}
+
+.menu ul li .active{
+    color:#FF305B;
+}
+
+
+/*home begins here*/
+#home{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(#000000cf 0% 100%), url(../images/slider-02.jpg);
+    background-position: center center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*the previous three lines are to make the text in home content appear @ the 
+    center of the page*/
+}
+.home-content{
+    width: 50%;
+    text-align: center;
+}
+#home .home-content .intro span{
+    color: white;
+    font-family: "Roboto", sans-serif ;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+#home .home-content .wrapper .typing-container {
+    display: inline-block;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    border-right: 2px solid white; /* White cursor effect */
+    padding-left: 5px;
+    font-family: "Roboto", sans-serif ;
+    color: white;
+    font-size: 26px;
+    font-weight: 100;
+    line-height: 37px;
+    text-transform: capitalize;
+    width: 150px; /* Fixed width to prevent shifting */
+    transition: width 0.08s ease-in-out; /* Faster and smoother width transition */
+}
+/* #home .home-content .wrapper {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif ;
+    color: white;
+    font-size: 26px;
+    font-weight: 100;
+    line-height: 37px;
+    text-transform: capitalize;
+    padding-left: 6px;
+} */
+#home .home-content h1{
+    font-family: "Source Sans 3", sans-serif;
+    text-transform: uppercase;
+    color: #FF305B;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 90px;
+}
+#home .home-content .wrapper h4{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif ;
+    color: white;
+    font-size: 26px;
+    font-weight: 100;
+    line-height: 37px;
+    text-transform: capitalize;
+}
+
+
+
+/*about begins here*/
+#about{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+#about .photo-block{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 50%;
+    justify-content: left;
+    height: 100vh;
+}
+#about .photo-block .container{
+    overflow: hidden;
+    background-color: #FF305B;
+    position: realtive;
+    display: inline-block;
+    width: 60%;
+    height: 65%;
+    margin-top: 120px;
+    margin-left: 183px;
+}
+#about .photo-block .container img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#about .photo-block .container .overlay{
+    padding-left: 183px;
+    margin-right: 50px;
+    position: absolute;
+    transition: all 0.3 ease;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.632);
+}
+#about .photo-block .container:hover .overlay{
+    opacity: 1;
+}
+#about .photo-block .container .slidebottom{
+    width: 60%;
+    height: 0;
+    right: 8px;
+    bottom: 72px;
+    background-color: rgba(0, 0, 0, 0.632);
+    transition: all 1s ease;
+}
+#about .photo-block .container:hover .slidebottom{
+    height: 65%;
+}
+#about .photo-block .container .overlay .icons{
+    text-align: center;
+    width: 35%;
+    padding-top: 350px;
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-50%, -50%);
+    transition: color 0.5;
+}
+#about .photo-block .container .overlay i:hover{
+    color: #FF305B;
+}
+#about .photo-block .frame{
+    z-index: -1;
+    position: absolute;
+    top: 90px;
+    left: 160px;
+    width: 60%;
+    height: 65%;
+    border: 8px solid #555555;
+    border-radius: 5px;
+}
+#about .content{
+    position: relative;
+    width: 55%;
+    background-color: white;
+    text-align: left;
+    padding: 90px 20px;
+    font-family: "Source Sans 3", sans-serif;
+}
+#about .content h1{
+    text-transform: uppercase;
+    font-size: 34px;
+    line-height: 22px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+#about .content h1 span{
+    text-transform: uppercase;
+    padding-right: 6px;
+    color: #FF305B;
+}
+#about .content p{
+    color: #555555;
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+#about .content hr {
+    border: none;
+    border-top: 1px dotted #555555;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 100%;
+  }
+#about .content .lists{
+    text-transform: capitalize;
+    display: flex;
+    color: #555555;
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    padding-bottom: 10px; 
+    line-height: 40px;
+}
+#about .content .lists span{
+    text-transform: capitalize;
+    padding-right: 3px;
+    font-weight: 500;
+    color: black;
+}
+#about .content .lists .list2{
+    padding-left: 90px;
+}
+#about .content .lists .list2 .email{
+    text-transform: none;
+    color: #555555;
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    padding-bottom: 20px; 
+    line-height: 40px;
+}
+#about .content .buttons{
+    margin: auto;
+}
+#about .content .buttons .bt1{
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+    background-color: #FF305B;
+    color: white;
+    padding: 9px 25px;
+    margin-right: 10px;
+    border-color: transparent;
+    border-radius: 4px;
+}
+
+#about .content .buttons .bt2{
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+    background-color: #FF305B;
+    color: white;
+    padding: 9px 22px;
+    border-color: transparent;
+    border-radius: 4px;
+}
+#about .content .buttons .bt2 .paper-plane{
+    padding-left: 5px;
+}
+
+
+/*services begins here*/
+#services{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background-color: #F1F1F1;
+    justify-content: center;
+}
+#services h2{
+    text-transform: capitalize;
+    color: #333333;
+    padding-top: 100px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: 800;
+}
+#services .first{
+    width: 8%;
+    display: block;
+    position: relative;
+    left: 46%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 3px;
+}
+#services .center{
+    width: 13%;
+    display: block;
+    position: relative;
+    left: 43.5%;
+    border-top: 1.4px solid #FF305B;
+    margin-bottom: 4px;
+}
+#services .divs{
+    padding: 40px 60px ;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+#services .divs .divlet{
+    width: 25%;
+    height: 58%;
+    padding-top: 40px;
+    transition: all 0.5s ease;
+}
+#services .divlet:hover{
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+#services .divs i{
+    color: #FF305B;
+    font-size: 36px;
+    line-height: 36px;
+}
+#services .divs h3{
+    text-transform: uppercase;
+    color: #333333;
+    padding: 20px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 24px;
+    line-height: 26.4px;
+    font-weight: 600;
+}
+#services .divs p{
+    font-family: "Roboto", sans-serif ;
+    color: #555555;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+
+
+/* analysis begins here */
+#analysis{
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    background-color: #F1F1F1;
+}
+#analysis .divs{
+    font-family: sans-serif;
+    padding: 40px 60px ;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+#analysis .divs .divlet{
+    width: 25%;
+    height: 58%;
+    padding-top: 40px;
+}
+#analysis .divs i{
+    color: #FF305B;
+    font-size: 36px;
+    line-height: 36px;
+    padding-bottom: 15px;
+}
+#analysis .divs .divlet h3{
+    text-transform: capitalize;
+    color: #333333;
+    font-family:sans-serif;
+    font-size: 23px;
+    line-height: 28.6px;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+#analysis .divs .divlet h5{
+    text-transform: capitalize;
+    color: #555555;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 17.6px;
+    font-weight: 600;
+}
+
+
+
+
+/*portifolio begins here*/
+#portifolio{
+    width: 100%;
+    height: 175vh;
+    text-align: center;
+    background-color: white;
+    justify-content: center;
+}
+#portifolio h2{
+    text-transform: capitalize;
+    color: #333333;
+    padding-top: 100px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: 800;
+}
+#portifolio .first{
+    width: 8%;
+    display: block;
+    position: relative;
+    left: 46%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 3px;
+}
+#portifolio .center{
+    width: 13%;
+    display: block;
+    position: relative;
+    left: 43.5%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 4px;
+}
+#portifolio .list{
+    width: 40%;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    position: absolute;
+    left: 375px;
+    padding: 40px;
+}
+#portifolio .list button{
+    text-transform: uppercase;
+    background-color: transparent;
+    border-width: 0;
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+#portifolio .images{
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 130px;
+    width: 90%;
+    height: 95vh;
+    overflow: hidden;
+}
+#portifolio .images img{
+    width: 90%;
+    height: 90%;
+    padding: 5px 5px;
+}
+#portifolio .images .overlay{
+    position: absolute;
+    padding: 5px 5px;
+    margin-left: 22px;
+    margin-bottom: 150px;
+    padding-bottom: 260px;
+    padding-right: 330px;
+    
+    z-index: 1;
+    transition: all 0.3 ease;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.632);
+}
+#portifolio .images .overlay:hover {
+    opacity: 1;
+}
+
+
+
+
+
+/* testimonial begins here */
+#testimonial{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background-color: white;
+    justify-content: center;
+    margin: auto;
+}
+#testimonial h2{
+    padding-top: 100px;
+    text-transform: capitalize;
+    font-family: "Source Sans 3", sans-serif;
+    color: #333333;
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: 800;
+}
+#testimonial .first{
+    width: 8%;
+    display: block;
+    position: relative;
+    left: 46%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 3px;
+}
+#testimonial .center{
+    width: 13%;
+    display: block;
+    position: relative;
+    left: 43.5%;
+    border-top: 1.4px solid #FF305B;
+    margin-bottom: 4px;
+}
+#testimonial .background{
+    margin-top: 40px;
+    margin-left: 250px;
+    width: 60%;
+    height: 48vh;
+    background: linear-gradient(135deg, #FF305B 0%, #FF305B 20%, #F1F1F1 20%, #F1F1F1 100%);
+    border-radius: 5px;
+    display: flex;            
+    justify-content: center;  
+    align-items: center; 
+
+}
+#testimonial .contents{
+    z-index: 2;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 90%;
+    height: 80%;
+    text-align: left;
+    display: flex;
+}
+#testimonial .contents .left{
+    float: left;
+    width: 60%;
+    height: 40vh;
+}
+#testimonial .contents .left img{
+    width: 60%;
+    border-radius: 50%;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+#testimonial .contents .right{
+    float: right;
+}
+#testimonial .contents .right h3{
+    text-transform: capitalize;
+    font-family: "Source Sans 3", sans-serif;
+    color: #333333;
+    font-size: 26px;
+    line-height: 28.6px;
+    font-weight: 600;
+    padding: 10px;
+}
+#testimonial .contents .right h4,a{
+    color: #777777;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 15px;
+    line-height: 16.5px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+#testimonial .contents .right p{
+    font-family: "Roboto", sans-serif ;
+    color: #555555;
+    font-stretch: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    font-style: italic;
+}
+#testimonial .contents .right .stars{
+    padding-top: 5px;
+    font-family: 'Times New Roman';
+    color: #F1C30D;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    
+}
+
+
+/* blog begins here */
+#blog{
+    width: 100%;
+    height: 140vh;
+    text-align: center;
+    background-color: #F1F1F1;
+}
+#blog .text{
+    width: 100%;
+    height: 40vh;
+    
+}
+#blog .text h2{
+    text-transform: capitalize;
+    color: #333333;
+    padding-top: 100px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: 800;
+}
+#blog .text .first{
+    width: 8%;
+    display: block;
+    position: relative;
+    left: 46%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 3px;
+}
+#blog .text .center{
+    width: 13%;
+    display: block;
+    position: relative;
+    left: 43.5%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 4px;
+}
+#blog .links{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+#blog .links .link{
+    width: 28%;
+    height: 80vh;
+    background-color: white;
+
+}
+#blog .links .link img{
+    width: 100%;
+    height: 50%;
+    padding-bottom: 15px;
+}
+#blog .links .link h3{
+    text-align: left;
+    color: #555555;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    padding-left: 15px;
+    padding-bottom: 6px;
+}
+#blog .links .link p{
+    text-transform: capitalize;
+    text-align: left;
+    color: #555555;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    padding-left: 15px;
+}
+#blog .links .link a{
+    text-transform: capitalize;
+    display: block;
+    text-align: left;
+    color: #333333;
+    font-family: sans-serif;
+    font-size: 24px;
+    line-height: 26.4px;
+    font-weight: 600;
+    padding-left: 15px;
+    transform: color 0.5s ease;
+}
+#blog .links .link a:hover{
+    color: #FF305B;
+}
+#blog .links .link .more a:hover{
+    color: #FF305B;
+}
+#blog .links .link .more .bt{
+    text-align: left;
+    float: left;
+    color: #333333;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    padding-top: 5px;
+}
+#blog .links .link .more i{
+    margin-right: 230px;
+    padding-top: 10px;
+    color: #333333;
+    transform: color 0.5s ease;
+}
+#blog .links .link .more a:hover .icon{
+    color: #FF305B;
+}
+
+
+
+
+/*contact begins here*/
+#contact{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background-color: white;
+    justify-content: center;
+}
+#contact .client-data{
+    margin: auto;
+}
+#contact h2{
+    padding-top: 100px;
+    text-transform: capitalize;
+    font-family: "Source Sans 3", sans-serif;
+    color: #333333;
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: 800;
+}
+#contact .first{
+    width: 8%;
+    display: block;
+    position: relative;
+    left: 46%;
+    border-top: 0.5px solid #FF305B;
+    margin-bottom: 3px;
+}
+#contact .center{
+    width: 13%;
+    display: block;
+    position: relative;
+    left: 43.5%;
+    border-top: 1.4px solid #FF305B;
+    margin-bottom: 4px;
+}
+#contact .contact-info .client-data{
+    padding: 30px;
+    width: 68%;
+}
+#contact .contact-info .client-data input{
+    font-size: 15px;
+    padding: 10px ;
+    padding-right: 185px;
+    margin-left: 13px;
+    border: 1px solid #a9a8a8;
+    border-radius: 5px;
+}
+#contact .contact-info .client-data .subject{
+    text-align: center;
+    padding: 20px;
+}
+#contact .contact-info .client-data .subject input{
+    padding-right: 77%;
+    margin-left: 0; 
+}
+#contact .contact-info .client-data textarea{
+    font-family: "Source Sans 3", sans-serif;
+    color: #333333;
+    border: 1px solid #a9a8a8;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-right: 73%; 
+    padding: 5px;
+    padding-bottom: 30px;
+    padding-left: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 97%;
+}
+#contact .contact-info .client-data button{
+    display: inline;
+    text-align: left;
+    font-family: "Source Sans 3", sans-serif;
+    background-color: #FF305B;
+    border-color: transparent;
+    border-radius: 5px;
+    color: white;
+    text-transform: capitalize;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    margin-left: 20px;  
+    margin-right: 610px;
+    margin-bottom: 50px;
+}
+
+
+/* footer begins here */
+#contact .footer{
+    margin: auto;
+    width: 100%;
+    height: 30vh;
+    padding-top: 60px;
+    background-color: #333333;
+    color: white;
+    font-family: "Roboto", sans-serif ;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+#contact .footer .icons{
+    margin: auto;
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+#contact .footer .icons i{
+    color: white;
+    transition: color 0.5s;
+}
+#contact .footer .icons i:hover{
+    color: #FF305B;
+}
+#contact .footer a{
+    color: #FF305B;
+}
+
+
+
